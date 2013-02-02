@@ -12,3 +12,39 @@ NEED
 TEST CASES
 	Create a graph with known solution.
 	
+
+Pseudo code
+
+matrix Floyd(Graph g) {
+Create a 3D matrix A[0...n][0...n-1][0...n-1]
+//Base case
+for i from 0 to n - 1
+     for j from 0 to n - 1
+          if i==j
+               A[0][i][j] = 0
+          else
+               A[0][i][j] = min(infinity, D[i][j])
+//Main loop
+for k from 1 to n
+     for i from 0 to n - 1 
+          for j from 0 to n - 1
+                A[k][i][j] = min(A[k - 1][i][k - 1] + A[k - 1][k - 1][j], A[k -
+1][i][j]) 
+               //1st arg of min: if layover changes length; 2nd: if it doesn't
+               //What happens if you take the existing paths and add a layover
+               //at vertex k - 1?
+return A[k] //returns a 2D matrix	
+}
+	for(int k = 1; k < attrs.size() + 1; k++) {
+		for(int i = 0; i < attrs.size(); i++) {
+			for(int j = 0; j < attrs.size(); j++) {
+				temp[k][i][j] =  
+					std::min(
+						temp[k - 1][i][k - 1] + temp[k - 1][k - 1][j],
+						temp[k - 1][i][j]
+					);
+			}	
+		}	
+	}	
+
+	return temp[attrs.size()];
