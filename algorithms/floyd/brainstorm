@@ -1,0 +1,14 @@
+INPUT:
+	Weighted, directed graph with no negative weight cycles
+
+OUTPUT:
+	Distance matrix. D[i][j] is distance of shortest path from i to j.
+	Inf if unreachable
+
+NEED
+	numerical limits (infinite)
+	test cases
+
+TEST CASES
+	Create a graph with known solution.
+	
