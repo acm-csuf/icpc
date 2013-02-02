@@ -46,7 +46,10 @@ struct Edge {
 
   // Can this edge flow from "from" to "to"?
   bool connects(int from, int to) const {
-    return exits(from) && enters(to);
+    if (from != to)
+      return exits(from) && enters(to);
+    else
+      return (v == from) && (w == from);
   }
 
   // Assuming x is one of this edge's ends, return the other end.
@@ -74,7 +77,7 @@ typedef vector<vector<Edge const*> > AdjMatrix;
 // algorithms don't handle that situation.
 struct Graph {
   // Edge objects in the order they were added (unsorted).
-  vector<Edge> edges;
+  vector<Edge*> edges;
 
   // Adjacency list: adj[v] is all the edges incident to vertex v. The
   // elements are pointers to the same Edge objects stored in the
@@ -84,6 +87,12 @@ struct Graph {
   // n is the count of vertices.
   Graph(int n)
   : adj(n) { }
+
+  // destructor
+  ~Graph() {
+    for (vector<Edge*>::iterator i = edges.begin(); i != edges.end(); ++i)
+      delete *i;
+  }
 
   int n() const { return adj.size(); }    // # vertices
   int m() const { return edges.size(); }  // # edges
@@ -95,9 +104,9 @@ struct Graph {
   int add_edge(int v, int w, bool directed=false, double weight=0.0) {
     assert(is_vertex(v));
     assert(is_vertex(w));
-    edges.push_back(Edge(m(), v, w, directed, weight));
-    adj[v].push_back(&edges.back());
-    adj[w].push_back(&edges.back());
+    edges.push_back(new Edge(m(), v, w, directed, weight));
+    adj[v].push_back(edges.back());
+    adj[w].push_back(edges.back());
   }
 
   // Find an edge connecting "from" to "to", or EDGE_NULL if no such
@@ -114,10 +123,11 @@ struct Graph {
   AdjMatrix* adj_matrix() const {
     assert(!empty());
     AdjMatrix* m = new AdjMatrix(n(), vector<Edge const*>(n(), EDGE_NULL));
-    for (vector<Edge>::const_iterator e = edges.begin(); e != edges.end(); ++e) {
-      (*m)[e->v][e->w] = &*e;
-      if (!e->directed)
-	(*m)[e->w][e->v] = &*e;
+    for (vector<Edge*>::const_iterator i = edges.begin(); i != edges.end(); ++i) {
+      const Edge& e = **i;
+      (*m)[e.v][e.w] = &e;
+      if (!e.directed)
+	(*m)[e.w][e.v] = &e;
     }
     return m;
   }
@@ -126,8 +136,8 @@ struct Graph {
 
   int count_directed() const {
     int total = 0;
-    for (vector<Edge>::const_iterator e = edges.begin(); e != edges.end(); ++e)
-      if (e->directed)
+    for (vector<Edge*>::const_iterator e = edges.begin(); e != edges.end(); ++e)
+      if ((*e)->directed)
 	++total;
     return total;
   }
