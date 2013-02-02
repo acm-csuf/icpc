@@ -88,6 +88,12 @@ struct Graph {
   Graph(int n)
   : adj(n) { }
 
+  // destructor
+  ~Graph() {
+    for (vector<Edge*>::iterator i = edges.begin(); i != edges.end(); ++i)
+      delete *i;
+  }
+
   int n() const { return adj.size(); }    // # vertices
   int m() const { return edges.size(); }  // # edges
 
