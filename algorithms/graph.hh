@@ -97,7 +97,7 @@ struct Graph {
   int n() const { return adj.size(); }    // # vertices
   int m() const { return edges.size(); }  // # edges
 
-  int is_vertex(int x) const { return (x >= 0) && (x < n()); }
+  bool is_vertex(int x) const { return (x >= 0) && (x < n()); }
 
   bool empty() const { return n() == 0; }
 
