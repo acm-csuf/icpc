@@ -23,7 +23,7 @@ bool compare_edge_ptr_weight(const Edge* x, const Edge* y) {
 vector<const Edge*>* kruskal_mst_edges(const Graph& g) {
   assert(!g.empty());
 
-  // Sort the edges into nonincreasing order by weight. We use a
+  // Sort the edges into nondecreasing order by weight. We use a
   // stable sort to make unit testing easier, but stability is not
   // otherwise necessary.
   vector<Edge*> sorted_edges = g.edges;
