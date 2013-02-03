@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <limits>
+#include <iostream>
 #include "../graph.hh"
 typedef std::vector<vector<Path *> > DistanceMatrix;
 
@@ -36,9 +37,9 @@ DistanceMatrix* floyd(Graph *g) {
 	// initialize the "previous" matrix
 	floyd_init(previous, g, adj_matrix);
 
-	delete_distance_matrix(previous);
+	delete_distance_matrix(shortest_paths);
 	delete adj_matrix;
-	return shortest_paths;
+	return previous;
 }
 
 // Intialize a distance matrix
@@ -59,10 +60,10 @@ void floyd_init(DistanceMatrix *d, Graph *g, AdjMatrix *adj) {
 				// distance of vertex i to j
 				if(adj->at(i).at(j) != EDGE_NULL) {
 					// i and j are adjacent
-					Path *p = new Path();
+					Path p;
 					// add edge to path
-					p->extend(*(adj->at(i).at(j))); // need to dereference edge
-					d->at(i).at(j) = p;
+					const Edge *e = adj->at(i).at(j);
+					d->at(i).at(j) = p.extend(*e);
 				}
 				else {
 					// i and j are not adjacent
