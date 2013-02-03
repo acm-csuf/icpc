@@ -155,11 +155,18 @@ struct Path {
   Path()
     : weight(0) { }
 
-  Path extend(const Edge& e) const {
-    Path it = *this;
-    it.edges.push_back(&e);
-    it.weight += e.weight;
-    return it;
+  // copy constructor
+  Path(const Path *p) {
+	this->edges = p->edges;
+	this->weight = p->weight;
+  }
+
+  //@postcondition - caller must deallocate path returned
+  Path *extend(const Edge& e) const {
+	Path *new_path = new Path(this);
+	new_path->edges.push_back(&e);
+	new_path->weight += e.weight;
+	return new_path;
   }
 };
 
