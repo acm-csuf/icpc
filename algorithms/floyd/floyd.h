@@ -53,6 +53,7 @@ DistanceMatrix* floyd(Graph *g) {
 				// calculate shortest path
 				// TODO this breaks if not a complete graph (if any previous
 				// value is NULL.
+				// TODO concatenation isn't working as expected
 				Path *potential = 
 					previous->at(i).at(k - 1)->concat(previous->at(i).at(j)); 
 				Path *new_path = min_path(potential, previous->at(i).at(j));
