@@ -1,5 +1,6 @@
 TODO:
 
+    Sieve of eratosthenes
     how to compile on the command line
     getline
     stringstream
