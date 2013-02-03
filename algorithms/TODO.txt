@@ -1,0 +1,38 @@
+TODO:
+
+    how to compile on the command line
+    getline
+    stringstream
+    tokenizing
+    read until eof
+    input/output redirect
+    ASCII code trick (modulus)
+    sorting
+    brute force
+    primality testing
+    prime generation
+    greatest common factor
+    basic solutions to NP-C problems?
+    vector class
+        using algorithm.h with vector
+    Full regression testing
+
+IN PROGRESS:
+
+  Floyd/Warshall (Chad)
+  Dijkstra's algorithm (Hayden)
+  DFS (Brian)
+  BFS (Fidel) 
+  Max flow (Kiet)
+
+DONE:
+
+ Kruskal's minimum spanning tree algorithm
+ Disjoint Sets data structure
+ Permutation generation example
+ Subset generation
+ Parsing example
+ Matrix initialization example
+ CSV parsing
+ GCD, LCM
+ Some regression testing 
