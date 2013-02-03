@@ -161,6 +161,18 @@ struct Path {
 	this->weight = p->weight;
   }
 
+  // Concatenates one path with another
+  // @param p - path to add to this
+  // @returns - new path
+  Path *concat(Path *p) {
+	Path *new_path = this;
+
+	for(int i = 0; i < p->edges.size(); i++) {
+		new_path = new_path->extend(*(p->edges.at(i)));
+	}
+	return new_path;
+  }
+
   //@postcondition - caller must deallocate path returned
   Path *extend(const Edge& e) const {
 	Path *new_path = new Path(this);
