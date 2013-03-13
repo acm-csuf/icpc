@@ -62,7 +62,7 @@ int main() {
       if (cmd == "PUSH") {
 	stack.push(Set());
       } else if (cmd == "DUP") {
-	stack.push(Set(stack.top()));
+	stack.push(stack.top());
       } else if (cmd == "ADD") {
 	Set a, b, c;
 	pop_pop(stack, a, b);
