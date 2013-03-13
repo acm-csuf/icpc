@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <cassert>
 #include <iostream>
+#include <iterator>
 #include <set>
 #include <stack>
 #include <vector>
@@ -72,22 +73,16 @@ int main() {
 	Set a, b, c;
 	pop_pop(stack, a, b);
 
-	vector<Set> elts(a.elts.size() + b.elts.size());
-	vector<Set>::iterator end;
-
 	if (cmd == "UNION") {
-	  end = set_union(a.elts.begin(), a.elts.end(),
-			  b.elts.begin(), b.elts.end(),
-			  elts.begin());
+	  set_union(a.elts.begin(), a.elts.end(),
+		    b.elts.begin(), b.elts.end(),
+		    inserter(c.elts, c.elts.begin()));
 	} else if (cmd == "INTERSECT") {
-	  end = set_intersection(a.elts.begin(), a.elts.end(),
-				 b.elts.begin(), b.elts.end(),
-				 elts.begin());
+	    set_intersection(a.elts.begin(), a.elts.end(),
+			     b.elts.begin(), b.elts.end(),
+			     inserter(c.elts, c.elts.begin()));
 	} 
 	
-	elts.resize(end - elts.begin());
-
-	c.elts.insert(elts.begin(), end);
 	stack.push(c);
       }
 
