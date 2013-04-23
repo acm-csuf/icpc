@@ -28,11 +28,11 @@ void read_coord_vector(vector<Coord>& out) {
   cin >> n;
   for (int i = 0; i < n; ++i) {
     out.push_back(Coord());
-    cin >> out.back().x >> out.back().y;
+    cin >> out.back().y >> out.back().x;
   }
 }
 
-enum Dir { NORTH, EAST, SOUTH, WEST };
+enum Dir { NORTH=0, EAST=1, SOUTH=2, WEST=3 };
 
 struct Robot {
   Robot() { }
@@ -88,8 +88,6 @@ struct Grid {
       case WEST:  --x; break;
       }
     }
-
-    //    cout << "{" << out.size() << "}";
   }
 
   int poi_seen_by(const Robot& robot) const {
@@ -115,10 +113,7 @@ struct Grid {
 	 i != los.end(); ++i) {
       if (grid[i->y][i->x] == UNSEEN_POI) {
 	grid[i->y][i->x] = SEEN_POI;
-	int size_before = unseen_poi.size();
-	unseen_poi.erase(find(unseen_poi.begin(), unseen_poi.end(),
-			      Coord(i->x, i->y)));
-	assert(unseen_poi.size() == (size_before - 1));
+	unseen_poi.erase(find(unseen_poi.begin(), unseen_poi.end(), *i));
       }
     }
   }
@@ -126,22 +121,6 @@ struct Grid {
   vector<vector<GridCell> > grid;
   vector<Coord> unseen_poi;
 };
-
-void try_improve(Robot& best_robot,
-		 int& best_seen,
-		 bool& best_exists,
-		 const Grid& grid,
-		 const Coord& pos,
-		 Dir dir) {
-  Robot try_robot(pos, dir);
-  int try_seen = grid.poi_seen_by(try_robot);
-  //  cout << "(" << try_seen << ")";
-  if (!best_exists || (try_seen > best_seen)) {
-    best_robot = try_robot;
-    best_seen = try_seen;
-    best_exists = true;
-  }
-}
 
 int main() {
   int C;
@@ -155,8 +134,6 @@ int main() {
     read_coord_vector(poi);
     read_coord_vector(obstacles);
 
-    //    cout << "C=" << C << " X=" << X << " Y=" << Y << " P=" << poi.size() << " W=" << obstacles.size() << endl;
-
     Grid grid(X, Y, poi, obstacles);
 
     // Greedy algorithm: Try each uncovered point as a robot
@@ -169,17 +146,29 @@ int main() {
       int best_seen;
       bool best_exists = false;
 
+      // try each uncovered POI
       for (vector<Coord>::const_iterator i = grid.unseen_poi.begin();
 	   i != grid.unseen_poi.end(); ++i) {
-	//	cout << "  trying robot at (" << i->x << ", " << i->y << ")" << endl;
-	try_improve(best_robot, best_seen, best_exists, grid, *i, NORTH);
-	try_improve(best_robot, best_seen, best_exists, grid, *i, EAST);
-	try_improve(best_robot, best_seen, best_exists, grid, *i, SOUTH);
-	try_improve(best_robot, best_seen, best_exists, grid, *i, WEST);
-      }
-      assert(best_exists);
 
-      //      cout << "  adding robot at (" << best_robot.pos.x << ", " << best_robot.pos.y << ") facing=" << best_robot.dir << endl;
+	// Try all 4 directions at that point. Use an int instead of
+	// Dir, which is a little dirty, but works.
+
+	// Double check that we're looping through the directions in
+	// the proper order.
+	assert((WEST-NORTH+1) == 4);
+
+	for (int dir = NORTH; dir <= WEST; ++dir) {
+	  Robot try_robot(*i, (Dir)dir);
+	  int try_seen = grid.poi_seen_by(try_robot);
+	  if (!best_exists || (try_seen > best_seen)) {
+	    best_robot = try_robot;
+	    best_seen = try_seen;
+	    best_exists = true;
+	  }
+	}
+      }
+
+      assert(best_exists);
 
       grid.add_robot(best_robot);
     }
