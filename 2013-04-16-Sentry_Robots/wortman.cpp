@@ -1,5 +1,4 @@
-// The output of this program matches the sample output, but it is
-// judged "wrong answer" by UVa.
+// Accepted by UVa.
 
 #include <algorithm>
 #include <cassert>
