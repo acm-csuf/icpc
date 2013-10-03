@@ -1,0 +1,114 @@
+//Author: Sam Forrest
+
+#include <iostream>
+#include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+
+using namespace std;
+
+//0 = north, 1 = east, 2 = south, 3 = west for bot directions
+struct robot {
+    int direction;
+    int col;
+    int row;};
+
+void move_bot (const char move,  vector <vector <bool> > maze, robot &bot);    
+    
+int main ()
+{
+	
+    int test_cases;
+    cin >> test_cases;
+  
+    for (int i = 1; i <= test_cases; i++)
+    {
+	robot bot;
+	bot.direction = 0;
+	int num_row, num_col;
+	cin >> num_row >> num_col;
+	vector <vector<bool> > maze (num_row, vector<bool>(num_col, true));
+	
+	char t;
+	cin.get(t);
+	for (int j = 0; j < num_row; j++)
+	{
+	    for (int k = 0; k < num_col; k++)
+	    {
+		cin.get(t);
+		if (t == '*')
+		    maze[j][k] = false;
+	    }
+	    cin.get(t);
+	}
+		
+	cin >> bot.row >> bot.col;
+	bot.row--;
+	bot.col--;  
+	  
+	char c;
+	cin >> c;
+	while (c != 'Q')
+	{
+	    move_bot(c, maze, bot);
+	    cin >> c;
+	}
+	char dir;
+	switch (bot.direction)
+	{
+	    case 0:
+		dir = 'N'; 
+		break;
+	    case 1:
+		dir = 'E'; 
+		break;
+	    case 2:
+		dir = 'S'; 
+		break;
+	    case 3:
+		dir = 'W'; 
+	  }
+	
+	printf("%d %d %c\n", bot.row + 1, bot.col + 1, dir);
+	
+	if (i != test_cases)
+	    cout << endl;
+	
+	maze.clear();
+    }
+    return 0;
+}
+
+void move_bot (const char move,  vector <vector <bool> > maze, robot &bot)
+{
+    switch (move)   
+	{
+	    case '\n':
+		break;
+	    case 'R':
+		bot.direction = (bot.direction + 1) % 4;
+		break;
+	    case 'L':
+		bot.direction = (bot.direction - 1) % 4;
+		break;
+	    case 'F':
+		switch (bot.direction)
+		{
+		    case 0: //bot facing north
+			if ((bot.row > 0) && (maze[bot.row - 1][bot.col] == true))
+			    bot.row--;
+			    break;
+		    case 1: //bot facing east
+			if ((bot.col < maze[0].size()-1) && (maze[bot.row][bot.col + 1] == true))
+			    bot.col++;
+			    break;
+		    case 2: //bot facing south
+			if ((bot.row < maze.size()-1) && (maze[bot.row + 1][bot.col] == true))
+			    bot.row++;
+			    break;
+		    case 3: //bot facing west
+			if((bot.col > 0) && (maze[bot.row][bot.col -1] == true))
+			    bot.col--;
+		}
+	}
+}
