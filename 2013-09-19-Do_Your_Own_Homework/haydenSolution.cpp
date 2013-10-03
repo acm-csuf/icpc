@@ -51,5 +51,6 @@ int main()
 		if (!flag) cout << "Case " << (i+1) << ": Do your own homework!\n";
 	}
 
+	delete courses;
 	return 0;
 }

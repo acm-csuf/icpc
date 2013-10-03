@@ -1,4 +1,4 @@
-#define _USE_MATH_DEFINES
+#define _USE_MATH_DEFINES	//Include M_PI constant from math.h
 #include <iostream>
 #include <vector>
 #include <string>
@@ -17,7 +17,7 @@ int main()
 	cin >> cases;
 	for (int i=0; i<cases; i++)
 	{
-		heading = 90;
+		heading = 90;	//Reset robot to face North.
 		cin >> rows >> cols;
 		cin.ignore();
 		assert(rows <= 60);
@@ -43,8 +43,14 @@ int main()
 				break;
 			case 'F':
 				{
+					//Update position.
+					//deltaX = cos(heading)
+					//deltaY = sin(heading)
+					//Y axis is inverted on the screen, so we subtract deltaY.
 					int newX = xPos + (int)(cos(heading*(M_PI*2)/360));
 					int newY = yPos - (int)(sin(heading*(M_PI*2)/360));
+					//Check that new X and Y values are valid (within
+					//the grid and not inside a wall.
 					if (newX > 0 && newY > 0 && newX <= cols && newY <= rows && maze[newY-1][newX-1] != '*')
 					{
 						xPos = newX;
