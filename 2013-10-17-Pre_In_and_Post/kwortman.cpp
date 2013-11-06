@@ -1,9 +1,9 @@
 // Solution for
-// 10067 - Playing with Wheels
-// http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1642
+// 10701 - Pre, in and post
+// http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=19&page=show_problem&problem=1642
 // Author: Kevin Wortman (kwortman@fullerton.edu)
 // Status: Accepted
-// 10/24/2013
+// 11/5/2013
 
 #include <algorithm>
 #include <iostream>
