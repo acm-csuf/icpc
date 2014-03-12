@@ -32,5 +32,6 @@ Check out our [website](http://acm.ecs.fullerton.edu/) or find us on
 * 2013-10-17: [10701 - Pre, in and post](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=19&page=show_problem&problem=1642)
 * 2014-02-13: [10945 - Mother bear](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=21&page=show_problem&problem=1886)
 * 2014-02-20: [11500 - Vampires](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=27&page=show_problem&problem=2495)
+* 2014-03-06: [920 - Sunny Mountains](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=11&page=show_problem&problem=861)
 
 -ACM CSUF
