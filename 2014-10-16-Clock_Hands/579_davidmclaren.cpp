@@ -44,7 +44,7 @@ int main(int argc, char const *argv[])
 			m_angle = 0;
 		}
 
-		// Calculate three angles
+		// Calculate the angles
 		angle1 = abs(h_angle - m_angle);
 		angle2 = 360 - angle1;
 
