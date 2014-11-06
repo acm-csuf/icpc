@@ -21,8 +21,8 @@ int main(int argc, char const *argv[])
 
 		// Equation
 		// Round to nearest int
-		adj1 = (int) (row + 0.5) / 3;
-		adj2 = (int) (col + 0.5) / 3;
+		adj1 = (int) (row / 3 + 0.5);
+		adj2 = (int) (col / 3 + 0.5);
 
 		// Return answer
 		cout << adj1 * adj2 << endl;
