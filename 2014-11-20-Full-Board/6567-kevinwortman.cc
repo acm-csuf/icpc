@@ -105,50 +105,46 @@ private:
     assert(is_visited(start_x, start_y));
     assert(_num_empty >= 0);
 
-    // base case, done
     if (_num_empty == 0) {
+      // base case, done
       return 0;
+    } else {
+      // otherwise try recursing in each cardinal direction
+      return min(dfs_direction(start_x, start_y, 0, -1), // N
+		 min(dfs_direction(start_x, start_y, +1, 0), // E
+		     min(dfs_direction(start_x, start_y, 0, +1), // S
+			 dfs_direction(start_x, start_y, -1, 0)))); // W
     }
+  }
 
-    int best = INFINITY;
-
-    // try moving both vertically and horizontally.
-    for (int horizontal = 0; horizontal <= 1; ++horizontal) {
-      // try both forward and backward
-      for (int forward = 0; forward <= 1; ++forward) {
-
-	// work out x-velocity and y-velocity
-	int dx = 1, dy = 0;
-	if (!forward)
-	  dx *= -1;
-	if (!horizontal)
-	  swap(dx, dy);
-
-	int x = start_x, y = start_y;
-	// move one step
-	if (may_enter(x+dx, y+dy)) {
-	  while (may_enter(x+dx, y+dy)) {
-	    x += dx;
-	    y += dy;
-	    visit(x, y);
-	  }
-
-	  // DFS recursion
-	  int steps = dfs(x, y);
-	  if (steps != INFINITY)
-	    best = min(best, steps + 1);
-	  
-	  // undo step
-	  while ((x != start_x) || (y != start_y)) {
-	    unvisit(x, y);
-	    x -= dx;
-	    y -= dy;
-	  }
-	}
+  int dfs_direction(int start_x, int start_y, int dx, int dy) {
+    if (!may_enter(start_x+dx, start_y+dy)) {
+      // this direction is impossible
+      return INFINITY;
+    } else {
+      // move one step
+      int x = start_x, y = start_y;
+      while (may_enter(x+dx, y+dy)) {
+	x += dx;
+	y += dy;
+	visit(x, y);
       }
-    }
 
-    return best;
+      // DFS recursion
+      int child_steps = dfs(x, y);
+	  
+      // undo step
+      while ((x != start_x) || (y != start_y)) {
+	unvisit(x, y);
+	x -= dx;
+	y -= dy;
+      }
+
+      if (child_steps == INFINITY)
+	return INFINITY;
+      else
+	return child_steps + 1; // account for this step
+    }
   }
   	      
   vector<vector<Cell> > _cells;
