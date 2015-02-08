@@ -1,5 +1,4 @@
-//Problem 579:Clock Hands
-// ACCEPTED
+//Problem 579:Clock Hands ACCEPTED
 //Niyaz Mahmud
 #include <string.h>
 #include <stdlib.h>
