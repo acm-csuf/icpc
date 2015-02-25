@@ -25,8 +25,8 @@ Check out our [website](http://acm.ecs.fullerton.edu/) or find us on
   * 2013-04-23: [12205 - Happy Telephones](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=244&page=show_problem&problem=3357)
   * 2013-05-01: [151 - Power Crisis](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=3&page=show_problem&problem=87)
   * 2013-05-25: *2013 Battle of the Bits*
-   * [10300 - Ecological Premium](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=15&page=show_problem&problem=1241)
-   * [10371 - Time Zones](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=15&page=show_problem&problem=1312)
+    * [10300 - Ecological Premium](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=15&page=show_problem&problem=1241)
+    * [10371 - Time Zones](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=15&page=show_problem&problem=1312)
 * Fall 2013:
   * 2013-09-19: [11917 - Do Your Own Homework](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=229&page=show_problem&problem=3068)
   * 2013-09-26: [10377 - Maze Traversal](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=15&page=show_problem&problem=1318)
@@ -48,10 +48,10 @@ Check out our [website](http://acm.ecs.fullerton.edu/) or find us on
   * 2014-11-20: [6566 - Light Switches](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=626&page=show_problem&problem=4577)
 * Spring 2013:
   * 2015-02-13: *2015 1st "mini" Programming Contest*
-   * [10797 - Peaceful Sharing](uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1738)
-   * [10761 - Broken Keyboard](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1702)
-   * [1644 - Prime Gap](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4519)
-   * [10798 - Be wary of Roses](uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1739)
-   * [10703 - Free spots](http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1644)
+    * [10797 - Peaceful Sharing](uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1738)
+    * [10761 - Broken Keyboard](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1702)
+    * [1644 - Prime Gap](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4519)
+    * [10798 - Be wary of Roses](uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1739)
+    * [10703 - Free spots](http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1644)
 
 -ACM CSUF
