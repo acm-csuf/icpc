@@ -1,9 +1,9 @@
 ICPC-Algorithms
 ===============
 
-This repository contains algorithms, problems, and solutions worked on or written by ACM CSUF. 
+This repository contains algorithms, problems, and solutions worked on or written by ACM CSUF.
 
-Check out our [website](http://acm.ecs.fullerton.edu/) or find us on 
+Check out our [website](http://acm.ecs.fullerton.edu/) or find us on
 [Facebook](http://www.facebook.com/groups/acmcsuf/).
 
 [Work on this week's problem](http://acm.ecs.fullerton.edu/problem)
@@ -46,7 +46,7 @@ Check out our [website](http://acm.ecs.fullerton.edu/) or find us on
   * 2014-11-13: [11733 - Airports](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2833)
   * 2014-11-20: [6567 - Full Board](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=626&page=show_problem&problem=4578)
   * 2014-11-20: [6566 - Light Switches](https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=626&page=show_problem&problem=4577)
-* Spring 2013:
+* Spring 2015:
   * 2015-02-13: *2015 1st "mini" Programming Contest*
     * [10797 - Peaceful Sharing](uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1738)
     * [10761 - Broken Keyboard](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1702)
