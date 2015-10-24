@@ -53,5 +53,10 @@ Check out our [website](http://acm.ecs.fullerton.edu/) or find us on
     * [1644 - Prime Gap](http://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=4519)
     * [10798 - Be wary of Roses](uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1739)
     * [10703 - Free spots](http://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1644)
+  * 2015-03-13: *2015 2nd "mini" Programming Contest*
+    * [661 - Blowing Fuses](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=602)
+    * [320 - Border](https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=256)
+* Fall 2015:
+  * 2015-10-23: [12148 - Electricity](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=3300)
 
 -ACM CSUF
